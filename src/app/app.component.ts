@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'admin-panel';
+  title = 'Admin Panel';
+  isDrawerOpen = false;
+
+
+  toggleDrawer = () => {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  };
 }
