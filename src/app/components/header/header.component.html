@@ -1,28 +1,35 @@
 <p>
-    <mat-toolbar color="primary">
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-        (click)="handleDrawer()"
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="handleDrawer()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a [routerLink]="['/dashboard']" class="example-span">
+      <span
+        *ngIf="userService.selectedUserSubject | async as user$; else title"
+        >{{ user$.name }}</span
       >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="example-span">{{ title }}</span>
-      <span class="example-spacer"></span>
-      <button
-        mat-icon-button
-        class="example-icon favorite-icon"
-        aria-label="Example icon-button with heart icon"
-      >
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon>share</mat-icon>
-      </button>
-    </mat-toolbar>
-  </p>
+      <ng-template #user$>{{ user$.name }</ng-template>
+      <ng-template #title>Admin Panel</ng-template>
+    </a>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
